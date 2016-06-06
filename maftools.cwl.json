@@ -1,0 +1,112 @@
+{
+  "requirements": [
+    {
+      "fileDef": [
+        {
+          "filename": "visualizeMaf.R",
+          "fileContent": "#!/usr/bin/env Rscript\n\narguments = commandArgs(trailingOnly=TRUE)\n\n ## Default setting when no arguments passed\n if(length(arguments) < 1) {\n    stop(\"The path to the MAF file is required and should be passed as first argument.\")\n }\n\n\nrequire(maftools)\ninput_file_path = arguments[1]\n\n#read TCGA maf file\ndataset = read.maf(maf = input_file_path, removeSilent = T, useAll = F)\n\nplotmafSummary(maf = dataset, file = \"summaryPlot\", rmOutlier = T, addStat = 'median')\n\npdf(\"oncoplot_and_titv.pdf\")\noncoplot(maf = dataset)\n#dev.off()\n\n#pdf(\"titv.pdf\")\ndataset.titv = titv(maf = dataset, useSyn = T)\ndev.off()"
+        }
+      ],
+      "class": "CreateFileRequirement"
+    }
+  ],
+  "sbg:project": "mmattioni/tools",
+  "sbg:modifiedBy": "mmattioni",
+  "baseCommand": [
+    "Rscript",
+    "visualizeMaf.R"
+  ],
+  "id": "https://cgc-api.sbgenomics.com/v2/apps/mmattioni/tools/maftools/4/raw/",
+  "sbg:latestRevision": 4,
+  "sbg:image_url": null,
+  "stdout": "",
+  "temporaryFailCodes": [],
+  "sbg:job": {
+    "allocatedResources": {
+      "cpu": 1,
+      "mem": 1000
+    },
+    "inputs": {
+      "maf_file": {
+        "class": "File",
+        "secondaryFiles": [],
+        "size": 0,
+        "path": "/path/to/maf_file.ext"
+      }
+    }
+  },
+  "sbg:sbgMaintained": false,
+  "arguments": [],
+  "label": "maftools",
+  "class": "CommandLineTool",
+  "inputs": [
+    {
+      "type": [
+        "File"
+      ],
+      "id": "#maf_file",
+      "inputBinding": {
+        "position": 0,
+        "separate": true,
+        "sbg:cmdInclude": true
+      },
+      "description": "The Maf File to plot"
+    }
+  ],
+  "sbg:contributors": [
+    "mmattioni"
+  ],
+  "successCodes": [],
+  "sbg:createdBy": "mmattioni",
+  "sbg:revision": 4,
+  "sbg:validationErrors": [],
+  "sbg:createdOn": 1464355694,
+  "stdin": "",
+  "sbg:cmdPreview": "Rscript visualizeMaf.R  /path/to/maf_file.ext",
+  "sbg:id": "mmattioni/tools/maftools/4",
+  "sbg:revisionsInfo": [
+    {
+      "sbg:modifiedOn": 1464355694,
+      "sbg:revision": 0,
+      "sbg:modifiedBy": "mmattioni"
+    },
+    {
+      "sbg:modifiedOn": 1465227154,
+      "sbg:revision": 1,
+      "sbg:modifiedBy": "mmattioni"
+    },
+    {
+      "sbg:modifiedOn": 1465230679,
+      "sbg:revision": 2,
+      "sbg:modifiedBy": "mmattioni"
+    },
+    {
+      "sbg:modifiedOn": 1465232133,
+      "sbg:revision": 3,
+      "sbg:modifiedBy": "mmattioni"
+    },
+    {
+      "sbg:modifiedOn": 1465232420,
+      "sbg:revision": 4,
+      "sbg:modifiedBy": "mmattioni"
+    }
+  ],
+  "sbg:modifiedOn": 1465232420,
+  "outputs": [],
+  "hints": [
+    {
+      "class": "sbg:CPURequirement",
+      "value": 1
+    },
+    {
+      "class": "sbg:MemRequirement",
+      "value": 1000
+    },
+    {
+      "dockerPull": "sevenbridges/maftools:dockerizeit",
+      "class": "DockerRequirement",
+      "dockerImageId": ""
+    }
+  ],
+  "description": ""
+}
