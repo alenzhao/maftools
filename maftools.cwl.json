@@ -16,8 +16,8 @@
     "Rscript",
     "visualizeMaf.R"
   ],
-  "id": "https://cgc-api.sbgenomics.com/v2/apps/mmattioni/tools/maftools/4/raw/",
-  "sbg:latestRevision": 4,
+  "id": "https://cgc-api.sbgenomics.com/v2/apps/mmattioni/tools/maftools/5/raw/",
+  "sbg:latestRevision": 5,
   "sbg:image_url": null,
   "stdout": "",
   "temporaryFailCodes": [],
@@ -28,9 +28,9 @@
     },
     "inputs": {
       "maf_file": {
-        "class": "File",
-        "secondaryFiles": [],
         "size": 0,
+        "secondaryFiles": [],
+        "class": "File",
         "path": "/path/to/maf_file.ext"
       }
     }
@@ -58,12 +58,12 @@
   ],
   "successCodes": [],
   "sbg:createdBy": "mmattioni",
-  "sbg:revision": 4,
+  "sbg:revision": 5,
   "sbg:validationErrors": [],
   "sbg:createdOn": 1464355694,
   "stdin": "",
   "sbg:cmdPreview": "Rscript visualizeMaf.R  /path/to/maf_file.ext",
-  "sbg:id": "mmattioni/tools/maftools/4",
+  "sbg:id": "mmattioni/tools/maftools/5",
   "sbg:revisionsInfo": [
     {
       "sbg:modifiedOn": 1464355694,
@@ -89,10 +89,36 @@
       "sbg:modifiedOn": 1465232420,
       "sbg:revision": 4,
       "sbg:modifiedBy": "mmattioni"
+    },
+    {
+      "sbg:modifiedOn": 1465233160,
+      "sbg:revision": 5,
+      "sbg:modifiedBy": "mmattioni"
     }
   ],
-  "sbg:modifiedOn": 1465232420,
-  "outputs": [],
+  "sbg:modifiedOn": 1465233160,
+  "outputs": [
+    {
+      "outputBinding": {
+        "glob": "summaryPlot.pdf"
+      },
+      "description": "Summary plot which visualize the MAF file",
+      "id": "#summary_plot",
+      "type": [
+        "File"
+      ]
+    },
+    {
+      "outputBinding": {
+        "glob": "oncoplot_and_titv.pdf"
+      },
+      "description": "OncoPlot and Transversion/Transition plot",
+      "id": "#onco_plot",
+      "type": [
+        "File"
+      ]
+    }
+  ],
   "hints": [
     {
       "class": "sbg:CPURequirement",
