@@ -16,8 +16,8 @@
     "Rscript",
     "visualizeMaf.R"
   ],
-  "id": "https://cgc-api.sbgenomics.com/v2/apps/mmattioni/tools/maftools/5/raw/",
-  "sbg:latestRevision": 5,
+  "id": "https://cgc-api.sbgenomics.com/v2/apps/mmattioni/tools/maftools/6/raw/",
+  "sbg:latestRevision": 6,
   "sbg:image_url": null,
   "stdout": "",
   "temporaryFailCodes": [],
@@ -28,9 +28,9 @@
     },
     "inputs": {
       "maf_file": {
-        "size": 0,
-        "secondaryFiles": [],
         "class": "File",
+        "secondaryFiles": [],
+        "size": 0,
         "path": "/path/to/maf_file.ext"
       }
     }
@@ -58,12 +58,12 @@
   ],
   "successCodes": [],
   "sbg:createdBy": "mmattioni",
-  "sbg:revision": 5,
+  "sbg:revision": 6,
   "sbg:validationErrors": [],
   "sbg:createdOn": 1464355694,
   "stdin": "",
   "sbg:cmdPreview": "Rscript visualizeMaf.R  /path/to/maf_file.ext",
-  "sbg:id": "mmattioni/tools/maftools/5",
+  "sbg:id": "mmattioni/tools/maftools/6",
   "sbg:revisionsInfo": [
     {
       "sbg:modifiedOn": 1464355694,
@@ -94,29 +94,36 @@
       "sbg:modifiedOn": 1465233160,
       "sbg:revision": 5,
       "sbg:modifiedBy": "mmattioni"
+    },
+    {
+      "sbg:modifiedOn": 1465309107,
+      "sbg:revision": 6,
+      "sbg:modifiedBy": "mmattioni"
     }
   ],
-  "sbg:modifiedOn": 1465233160,
+  "sbg:modifiedOn": 1465309107,
   "outputs": [
     {
       "outputBinding": {
+        "sbg:inheritMetadataFrom": "#maf_file",
         "glob": "summaryPlot.pdf"
       },
-      "description": "Summary plot which visualize the MAF file",
       "id": "#summary_plot",
       "type": [
         "File"
-      ]
+      ],
+      "description": "Summary plot which visualize the MAF file"
     },
     {
       "outputBinding": {
+        "sbg:inheritMetadataFrom": "#maf_file",
         "glob": "oncoplot_and_titv.pdf"
       },
-      "description": "OncoPlot and Transversion/Transition plot",
       "id": "#onco_plot",
       "type": [
         "File"
-      ]
+      ],
+      "description": "OncoPlot and Transversion/Transition plot"
     }
   ],
   "hints": [
